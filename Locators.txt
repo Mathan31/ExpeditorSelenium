@@ -1,0 +1,87 @@
+WebElement : Element presence in Web Page, TextBox,link,button,image,checkbox,dropdown,tool tips,Headers,Text,option button .
+
+Locators : Locators are used to locate any element in the WebPage .
+
+Dev Tool
+========
+1. right click on the element and click inspect.
+2. Press F12 --> Inspect from Dev Tool.
+
+
+Tag Name
+Attribute Name
+
+Types of Locators
+=================
+	- id
+	- name	
+	- class name (Grouping Locator)
+	- link text
+	- partial link text
+	- tag name (Grouping Locator)
+	- CSS (Cascading Style Sheet)
+		- Tag Name and ID (#)  --> input#userName
+		- Tag Name and Class Name (.) --> input.inputtext._55r1._6luy._9npi --> In Class attribute value the space should be replaced with dot.
+		- Tag Name and Attribute ([]) --> input[data-testid='royal_pass'] 
+		- Tag Name and Attribute starts with ([attributeName^]) --> input[data-testid^='royal_pass']
+		- Tag Name and Attribute ends with ([attributeName$]) --> input[data-testid$='royal_pass']
+		- Tag Name and Attribute contains ([attributeName*]) --> input[data-testid*='al_pa']
+		- To traverse from current tag to immediate child (>) --> div#passContainer > input
+		- To traverse from current tag to all the child and sub child ( )space --> div#passContainer input
+		- To traverse from current tag to following sibling (+) --> form._9vtf  > input + input
+		- To identify the first element of multiple matches (:first-child)--> div._6lux:first-child
+		- To identify the last element of multiple matches (:last-child)--> div._6lux:last-child
+		- To identify the nth element of multiple matches (:nth-child(2))--> form._9vtf > input:nth-child(2)
+		- To identify all the links present in the page --> a:link
+
+	- XPath  (It is a tool presence in Dev Tool which is used to locate any element in the web page)
+		- Absolute X-Path (/html/body/div[1]/div[1]/div[1]/div/div/div/div[2]/div/div[1]/form/div[1]/div[1]/input)
+		- Relative X-Path (//)
+
+		- To identify all the input tag : //input
+		- To identify all the link tag : //a
+		- To identify the nth element of multiple matches :  (//a)[40] --> Index will start from 1
+		- To locate any element using attribute : //input[@id='email']
+		- To locate any element using attribute : //*[@id='email']
+		- To locate any element using attribute using AND operator: //input[@id='email' and @name='email']
+		- To locate any element using attribute using OR operator: //input[@id='email' or @name='email']
+		- To locate any element using Xpath using | operator: //input[@id='email'] | //input[@name='email']
+		- To locate any element using text() : //a[text()='Forgotten password?']
+			//h2[text()='Facebook helps you connect and share with the people in your life.']
+		- To locate any element using contains() method with text(): //b[contains(text(),'2017')]  
+		- To locate any element using contains() method with attributes : //input[contains(@name,'user')]
+		- To traverse from the current tag to immediate parent (..) : //input[@name='userName']/..
+		- To traverse from the current tag to immediate parent (parent::*): //input[@name='userName']/parent::*   (or) 
+								        //input[@name='userName']/parent::td
+		- To traverse from the current tag to immediate child (/) : //input[@name='userName']/../child::input  (or) 
+									//input[@name='userName']/../input
+		- To traverse from the current tag to sub child (//) :  //input[@name='userName']/..//input
+		- To traverse from the current tag to all the parent : //input[@name='userName']/ancestor::*
+		- To traverse from the current tag to all the parent including current tag : 
+		//input[@name='userName']/ancestor-or-self::*
+		- To traverse from the current tag to all the child : 
+		(//input[@name='userName']/ancestor-or-self::table)[1]/descendant::*
+		- To traverse from the current tag to all the child including current tag: 
+		(//input[@name='userName']/ancestor-or-self::table)[1]/descendant-or-self::*
+		- To traverse from the current tag to all the following tag : //input[@name='userName']/following::*
+		- To traverse from the current tag to all the preceding tag : //input[@name='userName']/preceding::*
+		- To traverse from the current tag to all the following sibling tag : 
+		//input[@name='userName']/../../following-sibling::tr
+		- To traverse from the current tag to all the preceding sibling tag : 
+		//input[@name='userName']/../../preceding-sibling::tr
+		- We cann form dynamic xpath with the help of placeholder (%s) : //a[text()='%s']
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	

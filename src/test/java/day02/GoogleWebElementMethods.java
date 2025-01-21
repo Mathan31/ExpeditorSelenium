@@ -4,6 +4,7 @@ import java.time.Duration;
 
 import org.jspecify.annotations.Nullable;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -25,7 +26,7 @@ public class GoogleWebElementMethods {
 		getPageInfo();
 		googleSearch("Amazon");
 		getPageInfo();
-		closeBrowser();
+		//closeBrowser();
 	}
 
 	public static void invokeBrowser() {
@@ -90,7 +91,8 @@ public class GoogleWebElementMethods {
 		oSearchText.sendKeys(searchText);
 		
 		oSearchBtn = driver.findElement(By.name("btnK"));
-		oSearchBtn.click();
+		//oSearchBtn.click();
+		oSearchBtn.sendKeys(Keys.ENTER);
 		
 		//oResultLink = driver.findElement(By.linkText("Deals on Smart TVs"));
 		//oResultLink.click();
