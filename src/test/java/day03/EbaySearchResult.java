@@ -12,6 +12,8 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.support.ui.Select;
 
+import wrapper.ScreenShotSession;
+
 
 //Modular Framework
 public class EbaySearchResult {
@@ -19,14 +21,14 @@ public class EbaySearchResult {
 	public static WebDriver driver;
 	public static String sURL = "https://www.ebay.com/";
 	public static int iBrowserType = 8; // 1 - Chrome, 2 - Edge, 3 - FF, 4 - IE
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 		invokeBrowser();
 		browserSettings();
 		navigateURL();
 		getPageInfo();
 		productSearch("iPhone", "Cell Phones & Accessories");
-		//validateSearchResult();
-		getSearchResultByIndexing();
+		validateSearchResult();
+		//getSearchResultByIndexing();
 		//closeBrowser();
 	}
 
@@ -86,7 +88,7 @@ public class EbaySearchResult {
 		oSearcButton.click();
 	}
 	
-	public static void validateSearchResult() {
+	public static void validateSearchResult() throws Exception {
 		WebElement oResultText;
 		oResultText = driver.findElement(By.xpath("(//h1[@class='srp-controls__count-heading']/span)[1]"));
 		String resultValue = oResultText.getText(); //14,000
@@ -100,13 +102,14 @@ public class EbaySearchResult {
 		}
 	}
 	
-	public static void getSearchResult() {
+	public static void getSearchResult() throws Exception {
 		List<WebElement> linkLists = driver.findElements(By.xpath("//ul[@class='srp-results srp-list clearfix']/li[contains(@class,'s-item s-item')]"));
 		for (WebElement linkList : linkLists) {
 			WebElement linkText = linkList.findElement(By.xpath(".//a[@class='s-item__link']//span[@role='heading']"));
 			String text = linkText.getText();
 			System.out.println(text);
 		}
+		ScreenShotSession.takeFullScreenshotAsFile(driver, "EbayResultFullScreen");
 	}
 	
 	public static void getSearchResultByIndexing() {
